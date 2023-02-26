@@ -48,15 +48,15 @@ const Header = (props) => {
   const [loginPasswordRequired, setLoginPasswordRequired] =
     useState('invisible');
   const [loginPassword, setLoginPassword] = useState('');
-  const [firstNameRequired, setFirstNameRequired] = useState('invisible');
-  const [firstName, setFirstName] = useState('');
-  const [lastNameRequired, setLastNameRequired] = useState('invisible');
-  const [lastName, setLastName] = useState('');
+  const [firstnameRequired, setFirstnameRequired] = useState('invisible');
+  const [firstname, setFirstname] = useState('');
+  const [lastnameRequired, setLastnameRequired] = useState('invisible');
+  const [lastname, setLastname] = useState('');
   const [emailRequired, setEmailRequired] = useState('invisible');
   const [email, setEmail] = useState('');
-  const [registerPasswordRequired, setRegisterPasswordRequired] =
+  const [registerpasswordRequired, setRegisterPasswordRequired] =
     useState('invisible');
-  const [registerPassword, setRegisterPassword] = useState('');
+  const [registerpassword, setRegisterPassword] = useState('');
   const [contactRequired, setContactRequired] = useState('invisible');
   const [contact, setContact] = useState('');
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
@@ -158,14 +158,14 @@ const Header = (props) => {
 
   // Register
   const registerClickHandler = () => {
-    firstName === ''
-      ? setFirstNameRequired('visible')
-      : setFirstNameRequired('invisible');
-    lastName === ''
-      ? setLastNameRequired('visible')
-      : setLastNameRequired('invisible');
+    firstname === ''
+      ? setFirstnameRequired('visible')
+      : setFirstnameRequired('invisible');
+    lastname === ''
+      ? setLastnameRequired('visible')
+      : setLastnameRequired('invisible');
     email === '' ? setEmailRequired('visible') : setEmailRequired('invisible');
-    registerPassword === ''
+    registerpassword === ''
       ? setRegisterPasswordRequired('visible')
       : setRegisterPasswordRequired('invisible');
     contact === ''
@@ -173,13 +173,13 @@ const Header = (props) => {
       : setContactRequired('invisible');
 
     // Validate
-    if (firstName && lastName && email && registerPassword && contact) {
+    if (firstname && lastname && email && registerpassword && contact) {
       let dataSignup = {
         email_address: email,
-        first_name: firstName,
-        last_name: lastName,
+        first_name: firstname,
+        last_name: lastname,
         mobile_number: contact,
-        password: registerPassword,
+        password: registerpassword,
       };
 
       axios.post(props.baseUrl + 'signup', dataSignup).then((res) => {
@@ -187,8 +187,8 @@ const Header = (props) => {
 
         // Automatically switch to the login tab.
         setValue(0);
-        setFirstName('');
-        setLastName('');
+        setFirstname('');
+        setLastname('');
         setEmail('');
         setContact('');
         setRegisterPassword('');
@@ -201,12 +201,12 @@ const Header = (props) => {
   };
 
   // Register input handlers.
-  const inputFirstNameChangeHandler = (e) => {
-    setFirstName(e.target.value);
+  const inputFirstnameChangeHandler = (e) => {
+    setFirstname(e.target.value);
   };
 
-  const inputLastNameChangeHandler = (e) => {
-    setLastName(e.target.value);
+  const inputLastnameChangeHandler = (e) => {
+    setLastname(e.target.value);
   };
 
   const inputEmailChangeHandler = (e) => {
@@ -359,28 +359,28 @@ const Header = (props) => {
         {value === 1 && (
           <TabContainer>
             <FormControl required>
-              <InputLabel htmlFor="firstName">First Name</InputLabel>
+              <InputLabel htmlFor="firstname">First Name</InputLabel>
               <Input
-                id="firstName"
+                id="firstname"
                 type="text"
-                firstName={firstName}
-                onChange={inputFirstNameChangeHandler}
+                firstname={firstname}
+                onChange={inputFirstnameChangeHandler}
               />
-              <FormHelperText className={firstNameRequired}>
+              <FormHelperText className={firstnameRequired}>
                 <span className="red">required</span>
               </FormHelperText>
             </FormControl>
             <br />
             <br />
             <FormControl required>
-              <InputLabel htmlFor="lastName">Last Name</InputLabel>
+              <InputLabel htmlFor="lastname">Last Name</InputLabel>
               <Input
-                id="lastName"
+                id="lastname"
                 type="text"
-                lastName={lastName}
-                onChange={inputLastNameChangeHandler}
+                lastname={lastname}
+                onChange={inputLastnameChangeHandler}
               />
-              <FormHelperText className={lastNameRequired}>
+              <FormHelperText className={lastnameRequired}>
                 <span className="red">required</span>
               </FormHelperText>
             </FormControl>
@@ -401,14 +401,14 @@ const Header = (props) => {
             <br />
             <br />
             <FormControl required>
-              <InputLabel htmlFor="registerPassword">Password</InputLabel>
+              <InputLabel htmlFor="registerpassword">Password</InputLabel>
               <Input
-                id="registerPassword"
+                id="registerpassword"
                 type="password"
-                registerPassword={registerPassword}
+                registerpassword={registerpassword}
                 onChange={inputRegisterPasswordChangeHandler}
               />
-              <FormHelperText className={registerPasswordRequired}>
+              <FormHelperText className={registerpasswordRequired}>
                 <span className="red">required</span>
               </FormHelperText>
             </FormControl>
