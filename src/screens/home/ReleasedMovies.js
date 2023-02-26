@@ -2,7 +2,7 @@
  * Release movie component.
  */
 
-import { GridList, GridListTile, GridListTileBar } from '@material-ui/core';
+import { ImageList, ImageListItem, ImageListItemBar } from '@material-ui/core';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
@@ -37,9 +37,9 @@ const ReleasedMovies = (props) => {
 
   return (
     <div>
-      <GridList cellHeight={350} cols={4} className={classes.gridListMain}>
+      <ImageList rowHeight={350} cols={4} className={classes.gridListMain}>
         {releasedMovies.map((movie) => (
-          <GridListTile
+          <ImageListItem
             onClick={() => movieClickHandler(movie.id)}
             className={classes.releasedMovieGridItem}
             key={'grid' + movie.id}
@@ -49,7 +49,7 @@ const ReleasedMovies = (props) => {
               className="movie-poster"
               alt={movie.title}
             />
-            <GridListTileBar
+            <ImageListItemBar
               title={movie.title}
               subtitle={
                 <span>
@@ -57,9 +57,9 @@ const ReleasedMovies = (props) => {
                 </span>
               }
             />
-          </GridListTile>
+          </ImageListItem>
         ))}
-      </GridList>
+      </ImageList>
     </div>
   );
 };

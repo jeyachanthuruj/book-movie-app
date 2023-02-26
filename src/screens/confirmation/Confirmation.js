@@ -19,8 +19,8 @@ import { Link } from 'react-router-dom';
 
 const styles = (theme) => ({
   close: {
-    width: theme.spacing.unit * 4,
-    height: theme.spacing.unit * 4,
+    width: theme.spacing(4),
+    height: theme.spacing(4),
   },
   success: {
     color: green[600],
@@ -111,9 +111,7 @@ const Confirmation = (props) => {
 
           <Card className="cardStyle">
             <CardContent>
-              <Typography variant="headline" component="h2">
-                SUMMARY
-              </Typography>
+              <h2>SUMMARY</h2>
               <br />
 
               <div className="coupon-container">

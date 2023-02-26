@@ -39,7 +39,7 @@ const styles = (theme) => ({
     cursor: 'pointer',
   },
   formControl: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
     minWidth: 240,
     maxWidth: 240,
   },
